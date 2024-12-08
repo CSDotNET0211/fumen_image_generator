@@ -1,0 +1,146 @@
+/* ベースのスタイル */
+body {
+	font-family: Arial, sans-serif;
+	margin: 20px;
+	line-height: 1.6;
+	background-color: #f9f9f9;
+	color: #333;
+}
+
+/* ヘッダー */
+header {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+/* セクション */
+section {
+	margin-bottom: 30px;
+}
+
+/* 見出し */
+h1,
+h2 {
+	color: #555;
+}
+
+/* 画像 */
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	margin: 20px 0;
+}
+
+/* フッター */
+footer {
+	text-align: center;
+	margin-top: 20px;
+	font-size: 0.9em;
+	color: #666;
+}
+
+section {
+	background-color: #f4f4f4;
+	/* 背景色を薄いグレーに設定 */
+	padding: 20px;
+	/* セクション内の余白 */
+	margin-bottom: 20px;
+	/* セクション間の余白 */
+	border-radius: 8px;
+	/* 角を丸める */
+}
+
+#image_container {
+	display: flex;
+	position: relative;
+	width: 100%;
+}
+
+#image_container>img {
+	width: 30%;
+	height: auto;
+	flex: 1;
+}
+
+/* コードブロックのスタイル */
+pre {
+	background-color: #1e1e1e;
+	/* ダークな背景色 */
+	color: #d4d4d4;
+	/* 薄いグレーのテキスト色 */
+	padding: 10px;
+	/* 内側の余白 */
+	margin: 0;
+	/* 外側の余白をリセット */
+	border-radius: 5px;
+	/* 角を丸く */
+	overflow-x: auto;
+	/* 横スクロールが必要な場合に表示 */
+	font-family: "Courier New", monospace;
+	/* モノスペースフォント */
+	white-space: pre-wrap;
+	/* 自動改行を有効にする */
+	word-wrap: break-word;
+	/* 単語の途中で改行を行う */
+}
+
+code {
+	font-family: "Courier New", monospace;
+	/* モノスペースフォント */
+	color: inherit;
+	/* 親の色（pre内のテキスト色）を継承 */
+}
+
+
+/* 表 */
+table.parameter-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 20px;
+	color: #ffffff;
+}
+
+table.parameter-table th,
+table.parameter-table td {
+	padding: 10px;
+	border: 1px solid #444;
+	text-align: left;
+}
+
+table.parameter-table th {
+	background-color: #2d2d2d;
+	color: #ffffff;
+}
+
+table.parameter-table tr:nth-child(even) {
+	background-color: #333333;
+}
+
+table.parameter-table tr:nth-child(odd) {
+	background-color: #1e1e1e;
+}
+
+.highlight-red {
+	color: #ff6347;
+	/* トマト色 */
+	font-weight: bold;
+}
+
+.highlight-green {
+	color: #32cd32;
+	/* ライムグリーン */
+	font-weight: bold;
+}
+
+.highlight-blue {
+	color: #1e90ff;
+	/* ドジャーブルー */
+	font-weight: bold;
+}
+
+.highlight-purple {
+	color: #8a2be2;
+	/* ブルーバイオレット */
+	font-weight: bold;
+}

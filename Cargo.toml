@@ -1,0 +1,17 @@
+[package]
+name = "fumen_image_generator"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = "0.7.9"
+tokio = { version = "1.0", features = ["full"] }
+askama = "0.12.1"
+dotenv = "0.15.0"
+image = "0.25.5"
+serde = { version = "1.0.215", features = ["derive"] }
+serde_urlencoded = "0.7.1"
+fumen = { path = "../fumen" }
+percent-encoding = "2.3.1"
+url = "2.5.4"
+reqwest = "0.12.9"

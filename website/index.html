@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Fumen OGP</title>
+	<link rel="stylesheet" href="style.css?1">
+</head>
+
+<body>
+	<header>
+		<h1>Fumen OGP</h1>
+		<p>Fumen OGPとは、TwitterやDiscord、LINEでテト譜のURLを展開して画像を表示するサイトです。(Discord以外想定してないけど)</p>
+		<p>サイトの機能として実装されているため、DiscordにBOTを入れる必要がなく、URLを張るだけで使うことができます。</p>
+
+		<div>
+
+		</div>
+		<div id="image_container">
+			<img src="./res/discord.png" alt="discord ogp">
+			<img src="./res/discord2.png" alt="discord ogp">
+			<img src="./res/twitter.png" alt="twitter ogp">
+		</div>
+	</header>
+
+	<main>
+		<section>
+			<h2>使い方</h2>
+			<p>URLの構造は以下のようになっています。</p>
+			<p>URLのgenerateの部分をimageにすることで、URLを隠すことができます。上の2枚目の画像参照。</p>
+			<pre><code>https://fumen.csdotnet.dev/generate?data=<span style="color: #ff6347;">テト譜データ</span>&style=<span style="color: #32cd32;">スタイル</span>&page=<span style="color: #1e90ff;">ページ</span>&gif=<span style="color: #8a2be2;">gif</span></code></pre>
+
+
+			<table class="parameter-table">
+				<thead>
+					<tr>
+						<th>パラメータ</th>
+						<th>説明</th>
+						<th>デフォルト</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><span class="highlight-red">※テト譜データ</span></td>
+						<td>http、またはv115から始まる譜面データ、tinyurl.comでも展開してくれます。</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td><span class="highlight-green">スタイル</span></td>
+						<td>画像の種類をTETR.IOやぷよぷよテトリスの盤面に変更します。未実装</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td><span class="highlight-blue">ページ</span></td>
+						<td>テト譜のページを選択します。0から始まるため注意</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td><span class="highlight-purple">gif</span></td>
+						<td>1にするとgif画像を生成します。最大30ページ。OGPの仕様でサムネ表示では動かないっぽいので、URLの'generate'の部分を、'1.gif'にしてね。
+							<br>
+							例:https://fumen.csdotnet.dev/1.gif?data=https://tinyurl.com/yjhpb426&gif=1
+						</td>
+						<td>0</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<p>※がついてるパラメータは必須です。</p>
+			<h2>例</h2>
+			<ul>
+				<li>https://fumen.csdotnet.dev/generate?data=https://fumen.zui.jp/?v115@cfB8HeC8GeA8IeA8IeA8IeA8IeA8IeA8AeB8GeC8Ge?C8IeA8IeA8geAgHtfA8IeA8IeA8IeA8JeA8JeA8JeA8WeC8?neAAAofAAQeAAFeAALeAASeAAAeAAGeAAAeAAIeAA1eAAAt?fAAIeAA2fAAA7eB8BeA8EeA8AeA8AeC8CeA8AeB8AeC8BeA?8EeB8BeA8EeB8CeA8BeA8AeB8CeA8AeB8AeB8DeA8BeC8De?B8AeC8HeB8EeA8AeA8AeA8EeA8AeA8AeA8EeA8AeA8AeA8E?eA8AeA8GeA8AeA8HeB8AeA8FeD8LeAAA
+				</li>
+				<li>
+					https://fumen.csdotnet.dev/generate?data=https://tinyurl.com/227l83dm&style=2&page=6
+				</li>
+				<li>
+					https://fumen.csdotnet.dev/generate?data=https://tinyurl.com/227l83dm
+				</li>
+				<li>
+					https://fumen.csdotnet.dev/generate?data=v115@8gg0AeR4Feg0R4glDewwh0ilAeBtxwRpzhAeBtwwRp?JeAgH&style=2
+
+				</li>
+
+			</ul>
+
+			<p>
+			</p>
+
+
+		</section>
+
+		<section>
+			<h2>注意点</h2>
+			<p>各種SNSの仕様上URLはキャッシュされます。同じURLの場合途中で中身が変わっても反映されないことがあるため、URL末尾に&1など適当なQueryを付与すると解決できます。（バグった表示を直した後とか）
+			</p>
+			<p>テト譜の変換は一部実装されていないため、ミノ設置や鏡などのフラグを使うと上手く生成されない可能性があります。</p>
+			<p>エラー処理適当にやっているため変なデータ投げるとBad Gatewayとか表示されますが気にしないでください。</p>
+			<p>プログラムのアップデートやメンテナンスでいきなりサイトを止めることがあります。https://fumen.csdotnet.dev/pingが動いていれば生きています。</p>
+			<p>何かあればTwitterなりDiscordなりで連絡ください。</p>
+
+		</section>
+
+		<section>
+			<h2>更新履歴</h2>
+			<ul class="update-log">
+				<li><strong>2024-12-07:</strong> gifを対応させるために/imageを/任意のファイル名に変更</li>
+				<li><strong>2024-12-05:</strong> とりあえず動くやつを公開。</li>
+			</ul>
+		</section>
+	</main>
+
+	<footer>
+		<p>© 2024 CSDotNET. All rights reserved.</p>
+	</footer>
+</body>
+
+</html>
